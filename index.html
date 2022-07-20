@@ -8,12 +8,23 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.0.0-beta.78/dist/themes/light.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.0.0-beta.78/dist/themes/dark.css" />
     <style>
-      html, body {
-        height: 100%;
+      /* sticky footer start */
+      body {
+        height: 100vh;
+        margin: 0;
+      }
+      footer {
+        min-height: 50px;
+        background: transparent;
       }
       body {
-          margin: 0;
+        display: flex;
+        flex-direction: column;
       }
+      footer {
+        margin-top: auto;
+      }
+      /* sticky footer end */
       .center {
         text-align: center;
       }
@@ -21,17 +32,43 @@
         height: 100%;
         padding: 0;
         margin: 0;
-        display: flex;
-        flex-wrap: wrap;
-        align-items: center;
-        justify-content: center;
-      }
-      .break {
-        flex-basis: 100%;
-        height: 0;
       }
       .space {
         margin: 10px;
+      }
+      footer {
+        position: relative;
+        font-size: 12px;
+        line-height: 1.5;
+        color: #777;
+        clear: both;
+        width: 980px;
+        padding: 40px 0;
+        margin: 70px auto 0 auto;
+        border-top: 1px solid #eee;
+      }
+      footer .right {
+        float: right;
+        margin: 0;
+      }
+      ol, ul {
+        list-style: none;
+      }
+      html, body, ul, li {
+        margin: 0;
+        padding: 0;
+        border: 0;
+        outline: 0;
+        font-size: 100%;
+        font: inherit;
+        vertical-align: baseline;
+      }
+      .site-footer-links li:first-child {
+        margin-left: 0;
+      }
+      .site-footer-links li {
+        display: inline-block;
+        margin-left: 10px;
       }
     </style>
   </head>
@@ -39,17 +76,18 @@
     <div class="container center">
       <div>
         <p style="font-size: var(--sl-font-size-4x-large)">NO*</p>
-        <p style="font-size: var(--sl-font-size-small)">99.9% you really don't need it if you are asking.</p>
+        <p style="font-size: var(--sl-font-size-small)">*99.9% you really don't need it if you are asking.</p>
       </div>
-      <div class="break"></div>
-      <div>
-        Made with <a href="https://shoelace.style/" target="_blank">Shoelace</a>
-        <br/>
-        <div class="space">
-          <sl-switch>🌗</sl-switch>
-        </div>
+      <div class="space">
+        <sl-switch>🌗</sl-switch>
       </div>
     </div>
+    <footer>
+      <ul class="site-footer-links right">
+        <li>Made with <a href="https://shoelace.style/" target="_blank">Shoelace</a></li>
+        <li><a href="https://github.com/foostackdev/do-i-need-it" target="_blank">Source</a></li>
+      </ul>
+    </footer>
     <script type="module" src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.0.0-beta.78/dist/shoelace.js"></script>
     <script>
       const htmlEl = document.querySelector('html');
