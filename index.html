@@ -1,13 +1,56 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="">
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>HTML 5 Boilerplate</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Do I Need It?</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.0.0-beta.78/dist/themes/light.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.0.0-beta.78/dist/themes/dark.css" />
+    <style>
+      html, body {
+        height: 100%;
+      }
+      body {
+          margin: 0;
+      }
+      .center {
+        text-align: center;
+      }
+      .container {
+        height: 100%;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+      }
+      .break {
+        flex-basis: 100%;
+        height: 0;
+      }
+    </style>
   </head>
   <body>
-	<script src="index.js"></script>
+    <div class="container center">
+      <div>
+        <p style="font-size: var(--sl-font-size-4x-large)">NO*</p>
+        <p style="font-size: var(--sl-font-size-small)">99.9% you really don't need it if you are asking.</p>
+        <span><sl-switch>🌗</sl-switch></span>
+      </div>
+      <div class="break"></div>
+      <div>
+        Made with <a href="https://shoelace.style/" target="_blank">Shoelace</a>
+      </div>
+    </div>
+    <script type="module" src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.0.0-beta.78/dist/shoelace.js"></script>
+    <script>
+      const htmlEl = document.querySelector('html');
+      const switchEl = document.querySelector('sl-switch');
+      switchEl.addEventListener('sl-change', e => {
+        htmlEl.classList.toggle('sl-theme-dark', e.target.checked)
+      });
+    </script>
   </body>
 </html>
